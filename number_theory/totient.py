@@ -1,4 +1,4 @@
-from functions.gcd import gcd
+from number_theory.gcd import gcd
 
 
 def euler_totient_nlogn(n: int) -> int:
