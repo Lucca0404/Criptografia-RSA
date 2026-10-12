@@ -16,7 +16,7 @@ Além da implementação funcional do RSA, o projeto busca investigar a eficiên
 - Compreender e aplicar propriedades matemáticas relacionadas à criptografia RSA.
 - Desenvolver um criptossistema RSA didático com codificação e decodificação de mensagens.
 - Investigar diferentes implementações para um mesmo problema matemático.
-- Determinar a complexidade temporal e espacial dos algoritmos utilizando as notações O, Ω e Θ.
+- Determinar a complexidade temporal e espacial dos algoritmos utilizando as notações $O$, $\Omega$ e $\Theta$.
 - Comparar experimentalmente o desempenho das implementações.
 - Relacionar os resultados teóricos aos resultados experimentais.
 
@@ -41,53 +41,53 @@ A implementação contempla duas abordagens para a geração de chaves RSA: uma 
 
 ### 2.1. Geração de chaves pelo totiente de Euler
 
-Dados dois números primos distintos \(p\) e \(q\), calcula-se:
+Dados dois números primos distintos $p$ e $q$, calcula-se:
 
-\[
-N=pq
-\]
+$$
+N = pq
+$$
 
-\[
-\varphi(N)=(p-1)(q-1)
-\]
+$$
+\varphi(N) = (p-1)(q-1)
+$$
 
-Escolhe-se um expoente público \(e\) coprimo com \(\varphi(N)\), e determina-se o expoente privado \(d\) pela congruência:
+Escolhe-se um expoente público $e$ coprimo com $\varphi(N)$, e determina-se o expoente privado $d$ pela congruência:
 
-\[
-ed\equiv1\pmod{\varphi(N)}
-\]
+$$
+ed \equiv 1 \pmod{\varphi(N)}
+$$
 
 ### 2.2. Geração de chaves pela função de Carmichael
 
 Alternativamente, podemos utilizar:
 
-\[
-\lambda(N)=\operatorname{lcm}(p-1,q-1)
-\]
+$$
+\lambda(N) = \operatorname{lcm}(p-1,q-1)
+$$
 
 Nesse caso, o expoente privado satisfaz:
 
-\[
-ed\equiv1\pmod{\lambda(N)}
-\]
+$$
+ed \equiv 1 \pmod{\lambda(N)}
+$$
 
 Ambas as abordagens produzem pares de chaves matematicamente válidos para o RSA didático desenvolvido neste projeto.
 
 ### 2.3. Criptografia e descriptografia
 
-A chave pública é representada pelo par \((N,e)\), enquanto a chave privada é representada por \((N,d)\).
+A chave pública é representada pelo par $(N,e)$, enquanto a chave privada é representada por $(N,d)$.
 
-Para uma mensagem numérica \(M\), com \(0\leq M<N\), a criptografia é realizada por:
+Para uma mensagem numérica $M$, com $0 \leq M < N$, a criptografia é realizada por:
 
-\[
-C=M^e\bmod N
-\]
+$$
+C = M^e \bmod N
+$$
 
 A descriptografia utiliza:
 
-\[
-M=C^d\bmod N
-\]
+$$
+M = C^d \bmod N
+$$
 
 Essas operações são executadas por meio de exponenciação modular rápida.
 
@@ -106,7 +106,7 @@ O projeto reúne implementações de diferentes algoritmos matemáticos, incluin
 | `lcm.py` | Mínimo múltiplo comum |
 | `totient.py` | Totiente de Euler: contagem por MDC e fatoração prima |
 | `carmichael.py` | Função de Carmichael por fatoração prima |
-| `primality.py` | Divisão por tentativa: tradicional, divisores ímpares e candidatos \(6k\pm1\) |
+| `primality.py` | Divisão por tentativa: tradicional, divisores ímpares e candidatos $6k\pm1$ |
 | `modular_exponentiation.py` | Exponenciação modular linear e rápida |
 | `modular_inverse.py` | Inversão modular por Euclides Estendido e Teorema de Euler |
 
@@ -127,9 +127,9 @@ Para simplificar a representação de mensagens, foi desenvolvido um sistema did
 
 Cada letra maiúscula recebe um código de dois algarismos:
 
-\[
-A=10,\ B=11,\ C=12,\ldots,\ Z=35
-\]
+$$
+A=10,\quad B=11,\quad C=12,\quad \ldots,\quad Z=35
+$$
 
 Os códigos são concatenados e divididos em blocos numéricos menores que o módulo RSA.
 
@@ -188,9 +188,9 @@ Os testes foram desenvolvidos considerando técnicas de engenharia de software e
 
 Um dos principais testes de integração verifica a recuperação da mensagem original após a criptografia:
 
-\[
-D_{\text{privada}}(E_{\text{pública}}(M))=M
-\]
+$$
+D_{\text{privada}}\big(E_{\text{pública}}(M)\big)=M
+$$
 
 As implementações também são submetidas a testes individuais para verificar seus resultados e comportamentos esperados.
 
@@ -217,7 +217,7 @@ Para cada algoritmo, pretende-se:
 3. Contabilizar as frequências de execução das instruções.
 4. Construir uma função de custo representativa.
 5. Investigar os melhores e piores casos de execução.
-6. Demonstrar os limites assintóticos por meio das notações O, Ω e Θ.
+6. Demonstrar os limites assintóticos por meio das notações $O$, $\Omega$ e $\Theta$.
 7. Determinar a complexidade espacial auxiliar.
 
 As demonstrações considerarão as características específicas das implementações.
