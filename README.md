@@ -62,7 +62,7 @@ $$
 Alternativamente, podemos utilizar:
 
 $$
-\lambda(N) = \operatorname{lcm}(p-1,q-1)
+lambda(N) = \operatorname{lcm}(p-1,q-1)
 $$
 
 Nesse caso, o expoente privado satisfaz:
