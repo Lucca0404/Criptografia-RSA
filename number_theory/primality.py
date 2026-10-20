@@ -87,3 +87,24 @@ def is_prime_6k(n: int) -> bool:
         i += 6
 
     return True
+
+
+
+def is_prime(n : int) -> bool:
+
+    if n <= 1:
+        return False
+
+    if n in (2,3):
+        return True
+    
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    
+    p = 5
+    while p * p <= n:
+        if n % p == 0 or n % p + 2 == 0:
+            return False
+        p += 6
+
+    return True

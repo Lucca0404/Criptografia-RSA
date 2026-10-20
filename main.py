@@ -2,8 +2,8 @@ from rsa.key_generation import generate_keys_carmichael
 from rsa.encryption import rsa_encrypt
 from rsa.decryption import rsa_decrypt
 
-
 def main():
+
     public_key, private_key = generate_keys_carmichael(61, 53, 17)
 
     message = "CARLOS"
@@ -16,7 +16,6 @@ def main():
     print("Private key:", private_key)
     print("Encrypted blocks:", ciphertext)
     print("Decrypted message:", plaintext)
-
 
 if __name__ == "__main__":
     main()
